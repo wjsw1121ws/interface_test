@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wcc.intf.mapper.SynMapper">
+  <resultMap id="BaseResultMap" type="com.wcc.intf.pojo.Syn">
+    <!--@mbg.generated-->
+    <!--@Table syn-->
+    <id column="ID_syn" jdbcType="VARCHAR" property="idSyn" />
+    <result column="SETID" jdbcType="VARCHAR" property="setid" />
+    <result column="PAIC_OUT_DATE" jdbcType="TIMESTAMP" property="paicOutDate" />
+    <result column="PAIC_OUT_FLAG" jdbcType="VARCHAR" property="paicOutFlag" />
+    <result column="DEPTID" jdbcType="VARCHAR" property="deptid" />
+    <result column="PAIC_SETID_DESCR" jdbcType="VARCHAR" property="paicSetidDescr" />
+    <result column="DEPTID_DESCR" jdbcType="VARCHAR" property="deptidDescr" />
+    <result column="DEPTID_DESCR_SHORT" jdbcType="VARCHAR" property="deptidDescrShort" />
+    <result column="PAIC_DEPTTP_NO" jdbcType="VARCHAR" property="paicDepttpNo" />
+    <result column="PAIC_DEPTNO_DESC" jdbcType="VARCHAR" property="paicDeptnoDesc" />
+    <result column="PAIC_DEPTLEV_NO" jdbcType="VARCHAR" property="paicDeptlevNo" />
+    <result column="PAIC_DEPTLEV_DESC" jdbcType="VARCHAR" property="paicDeptlevDesc" />
+    <result column="LOCATION_DESCR" jdbcType="VARCHAR" property="locationDescr" />
+    <result column="POSTAL" jdbcType="VARCHAR" property="postal" />
+    <result column="PAIC_DEPT_STARTDT" jdbcType="VARCHAR" property="paicDeptStartdt" />
+    <result column="PAIC_DEPT_ENDDT" jdbcType="VARCHAR" property="paicDeptEnddt" />
+    <result column="PAIC_ROWADD_DTTM" jdbcType="VARCHAR" property="paicRowaddDttm" />
+    <result column="HRS_ROW_ADD_OPRID" jdbcType="VARCHAR" property="hrsRowAddOprid" />
+    <result column="PAIC_ROWUPD_DTTM" jdbcType="VARCHAR" property="paicRowupdDttm" />
+    <result column="HRS_ROW_UPD_OPRID" jdbcType="VARCHAR" property="hrsRowUpdOprid" />
+    <result column="PARENT_NODE_NAME" jdbcType="VARCHAR" property="parentNodeName" />
+    <result column="PARENT_NODE_NUM" jdbcType="INTEGER" property="parentNodeNum" />
+    <result column="TREE_NODE_NUM" jdbcType="INTEGER" property="treeNodeNum" />
+    <result column="TREE_NODE_NUM_END" jdbcType="INTEGER" property="treeNodeNumEnd" />
+    <result column="TREE_LEVEL_NUM" jdbcType="INTEGER" property="treeLevelNum" />
+    <result column="PAIC_TREEND_FLG" jdbcType="VARCHAR" property="paicTreendFlg" />
+    <result column="PAIC_UNIQUE_DEPTID" jdbcType="VARCHAR" property="paicUniqueDeptid" />
+    <result column="CREATED_BY" jdbcType="VARCHAR" property="createdBy" />
+    <result column="DATE_CREATED" jdbcType="TIMESTAMP" property="dateCreated" />
+    <result column="UPDATED_BY" jdbcType="VARCHAR" property="updatedBy" />
+    <result column="DATE_UPDATED" jdbcType="TIMESTAMP" property="dateUpdated" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID_syn, SETID, PAIC_OUT_DATE, PAIC_OUT_FLAG, DEPTID, PAIC_SETID_DESCR, DEPTID_DESCR, 
+    DEPTID_DESCR_SHORT, PAIC_DEPTTP_NO, PAIC_DEPTNO_DESC, PAIC_DEPTLEV_NO, PAIC_DEPTLEV_DESC, 
+    LOCATION_DESCR, POSTAL, PAIC_DEPT_STARTDT, PAIC_DEPT_ENDDT, PAIC_ROWADD_DTTM, HRS_ROW_ADD_OPRID, 
+    PAIC_ROWUPD_DTTM, HRS_ROW_UPD_OPRID, PARENT_NODE_NAME, PARENT_NODE_NUM, TREE_NODE_NUM, 
+    TREE_NODE_NUM_END, TREE_LEVEL_NUM, PAIC_TREEND_FLG, PAIC_UNIQUE_DEPTID, CREATED_BY, 
+    DATE_CREATED, UPDATED_BY, DATE_UPDATED
+  </sql>
+  <select id="selectByExample" parameterType="com.wcc.intf.pojo.SynExample" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from syn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from syn
+    where ID_syn = #{idSyn,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from syn
+    where ID_syn = #{idSyn,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.wcc.intf.pojo.SynExample">
+    <!--@mbg.generated-->
+    delete from syn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.wcc.intf.pojo.Syn">
+    <!--@mbg.generated-->
+    insert into syn (ID_syn, SETID, PAIC_OUT_DATE, 
+      PAIC_OUT_FLAG, DEPTID, PAIC_SETID_DESCR, 
+      DEPTID_DESCR, DEPTID_DESCR_SHORT, PAIC_DEPTTP_NO, 
+      PAIC_DEPTNO_DESC, PAIC_DEPTLEV_NO, PAIC_DEPTLEV_DESC, 
+      LOCATION_DESCR, POSTAL, PAIC_DEPT_STARTDT, 
+      PAIC_DEPT_ENDDT, PAIC_ROWADD_DTTM, HRS_ROW_ADD_OPRID, 
+      PAIC_ROWUPD_DTTM, HRS_ROW_UPD_OPRID, PARENT_NODE_NAME, 
+      PARENT_NODE_NUM, TREE_NODE_NUM, TREE_NODE_NUM_END, 
+      TREE_LEVEL_NUM, PAIC_TREEND_FLG, PAIC_UNIQUE_DEPTID, 
+      CREATED_BY, DATE_CREATED, UPDATED_BY, 
+      DATE_UPDATED)
+    values (#{idSyn,jdbcType=VARCHAR}, #{setid,jdbcType=VARCHAR}, #{paicOutDate,jdbcType=TIMESTAMP}, 
+      #{paicOutFlag,jdbcType=VARCHAR}, #{deptid,jdbcType=VARCHAR}, #{paicSetidDescr,jdbcType=VARCHAR}, 
+      #{deptidDescr,jdbcType=VARCHAR}, #{deptidDescrShort,jdbcType=VARCHAR}, #{paicDepttpNo,jdbcType=VARCHAR}, 
+      #{paicDeptnoDesc,jdbcType=VARCHAR}, #{paicDeptlevNo,jdbcType=VARCHAR}, #{paicDeptlevDesc,jdbcType=VARCHAR}, 
+      #{locationDescr,jdbcType=VARCHAR}, #{postal,jdbcType=VARCHAR}, #{paicDeptStartdt,jdbcType=VARCHAR}, 
+      #{paicDeptEnddt,jdbcType=VARCHAR}, #{paicRowaddDttm,jdbcType=VARCHAR}, #{hrsRowAddOprid,jdbcType=VARCHAR}, 
+      #{paicRowupdDttm,jdbcType=VARCHAR}, #{hrsRowUpdOprid,jdbcType=VARCHAR}, #{parentNodeName,jdbcType=VARCHAR}, 
+      #{parentNodeNum,jdbcType=INTEGER}, #{treeNodeNum,jdbcType=INTEGER}, #{treeNodeNumEnd,jdbcType=INTEGER}, 
+      #{treeLevelNum,jdbcType=INTEGER}, #{paicTreendFlg,jdbcType=VARCHAR}, #{paicUniqueDeptid,jdbcType=VARCHAR}, 
+      #{createdBy,jdbcType=VARCHAR}, #{dateCreated,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, 
+      #{dateUpdated,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wcc.intf.pojo.Syn">
+    <!--@mbg.generated-->
+    insert into syn
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="idSyn != null">
+        ID_syn,
+      </if>
+      <if test="setid != null">
+        SETID,
+      </if>
+      <if test="paicOutDate != null">
+        PAIC_OUT_DATE,
+      </if>
+      <if test="paicOutFlag != null">
+        PAIC_OUT_FLAG,
+      </if>
+      <if test="deptid != null">
+        DEPTID,
+      </if>
+      <if test="paicSetidDescr != null">
+        PAIC_SETID_DESCR,
+      </if>
+      <if test="deptidDescr != null">
+        DEPTID_DESCR,
+      </if>
+      <if test="deptidDescrShort != null">
+        DEPTID_DESCR_SHORT,
+      </if>
+      <if test="paicDepttpNo != null">
+        PAIC_DEPTTP_NO,
+      </if>
+      <if test="paicDeptnoDesc != null">
+        PAIC_DEPTNO_DESC,
+      </if>
+      <if test="paicDeptlevNo != null">
+        PAIC_DEPTLEV_NO,
+      </if>
+      <if test="paicDeptlevDesc != null">
+        PAIC_DEPTLEV_DESC,
+      </if>
+      <if test="locationDescr != null">
+        LOCATION_DESCR,
+      </if>
+      <if test="postal != null">
+        POSTAL,
+      </if>
+      <if test="paicDeptStartdt != null">
+        PAIC_DEPT_STARTDT,
+      </if>
+      <if test="paicDeptEnddt != null">
+        PAIC_DEPT_ENDDT,
+      </if>
+      <if test="paicRowaddDttm != null">
+        PAIC_ROWADD_DTTM,
+      </if>
+      <if test="hrsRowAddOprid != null">
+        HRS_ROW_ADD_OPRID,
+      </if>
+      <if test="paicRowupdDttm != null">
+        PAIC_ROWUPD_DTTM,
+      </if>
+      <if test="hrsRowUpdOprid != null">
+        HRS_ROW_UPD_OPRID,
+      </if>
+      <if test="parentNodeName != null">
+        PARENT_NODE_NAME,
+      </if>
+      <if test="parentNodeNum != null">
+        PARENT_NODE_NUM,
+      </if>
+      <if test="treeNodeNum != null">
+        TREE_NODE_NUM,
+      </if>
+      <if test="treeNodeNumEnd != null">
+        TREE_NODE_NUM_END,
+      </if>
+      <if test="treeLevelNum != null">
+        TREE_LEVEL_NUM,
+      </if>
+      <if test="paicTreendFlg != null">
+        PAIC_TREEND_FLG,
+      </if>
+      <if test="paicUniqueDeptid != null">
+        PAIC_UNIQUE_DEPTID,
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY,
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED,
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY,
+      </if>
+      <if test="dateUpdated != null">
+        DATE_UPDATED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="idSyn != null">
+        #{idSyn,jdbcType=VARCHAR},
+      </if>
+      <if test="setid != null">
+        #{setid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicOutDate != null">
+        #{paicOutDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paicOutFlag != null">
+        #{paicOutFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null">
+        #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicSetidDescr != null">
+        #{paicSetidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptidDescr != null">
+        #{deptidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptidDescrShort != null">
+        #{deptidDescrShort,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDepttpNo != null">
+        #{paicDepttpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptnoDesc != null">
+        #{paicDeptnoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptlevNo != null">
+        #{paicDeptlevNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptlevDesc != null">
+        #{paicDeptlevDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDescr != null">
+        #{locationDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="postal != null">
+        #{postal,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptStartdt != null">
+        #{paicDeptStartdt,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptEnddt != null">
+        #{paicDeptEnddt,jdbcType=VARCHAR},
+      </if>
+      <if test="paicRowaddDttm != null">
+        #{paicRowaddDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="hrsRowAddOprid != null">
+        #{hrsRowAddOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicRowupdDttm != null">
+        #{paicRowupdDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="hrsRowUpdOprid != null">
+        #{hrsRowUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNodeName != null">
+        #{parentNodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNodeNum != null">
+        #{parentNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="treeNodeNum != null">
+        #{treeNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="treeNodeNumEnd != null">
+        #{treeNodeNumEnd,jdbcType=INTEGER},
+      </if>
+      <if test="treeLevelNum != null">
+        #{treeLevelNum,jdbcType=INTEGER},
+      </if>
+      <if test="paicTreendFlg != null">
+        #{paicTreendFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="paicUniqueDeptid != null">
+        #{paicUniqueDeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null">
+        #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dateUpdated != null">
+        #{dateUpdated,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.wcc.intf.pojo.SynExample" resultType="java.lang.Long">
+    <!--@mbg.generated-->
+    select count(*) from syn
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated-->
+    update syn
+    <set>
+      <if test="record.idSyn != null">
+        ID_syn = #{record.idSyn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.setid != null">
+        SETID = #{record.setid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicOutDate != null">
+        PAIC_OUT_DATE = #{record.paicOutDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.paicOutFlag != null">
+        PAIC_OUT_FLAG = #{record.paicOutFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptid != null">
+        DEPTID = #{record.deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicSetidDescr != null">
+        PAIC_SETID_DESCR = #{record.paicSetidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptidDescr != null">
+        DEPTID_DESCR = #{record.deptidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deptidDescrShort != null">
+        DEPTID_DESCR_SHORT = #{record.deptidDescrShort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDepttpNo != null">
+        PAIC_DEPTTP_NO = #{record.paicDepttpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDeptnoDesc != null">
+        PAIC_DEPTNO_DESC = #{record.paicDeptnoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDeptlevNo != null">
+        PAIC_DEPTLEV_NO = #{record.paicDeptlevNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDeptlevDesc != null">
+        PAIC_DEPTLEV_DESC = #{record.paicDeptlevDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.locationDescr != null">
+        LOCATION_DESCR = #{record.locationDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postal != null">
+        POSTAL = #{record.postal,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDeptStartdt != null">
+        PAIC_DEPT_STARTDT = #{record.paicDeptStartdt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicDeptEnddt != null">
+        PAIC_DEPT_ENDDT = #{record.paicDeptEnddt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicRowaddDttm != null">
+        PAIC_ROWADD_DTTM = #{record.paicRowaddDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrsRowAddOprid != null">
+        HRS_ROW_ADD_OPRID = #{record.hrsRowAddOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicRowupdDttm != null">
+        PAIC_ROWUPD_DTTM = #{record.paicRowupdDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hrsRowUpdOprid != null">
+        HRS_ROW_UPD_OPRID = #{record.hrsRowUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentNodeName != null">
+        PARENT_NODE_NAME = #{record.parentNodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentNodeNum != null">
+        PARENT_NODE_NUM = #{record.parentNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.treeNodeNum != null">
+        TREE_NODE_NUM = #{record.treeNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.treeNodeNumEnd != null">
+        TREE_NODE_NUM_END = #{record.treeNodeNumEnd,jdbcType=INTEGER},
+      </if>
+      <if test="record.treeLevelNum != null">
+        TREE_LEVEL_NUM = #{record.treeLevelNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.paicTreendFlg != null">
+        PAIC_TREEND_FLG = #{record.paicTreendFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paicUniqueDeptid != null">
+        PAIC_UNIQUE_DEPTID = #{record.paicUniqueDeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdBy != null">
+        CREATED_BY = #{record.createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateCreated != null">
+        DATE_CREATED = #{record.dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updatedBy != null">
+        UPDATED_BY = #{record.updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dateUpdated != null">
+        DATE_UPDATED = #{record.dateUpdated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated-->
+    update syn
+    set ID_syn = #{record.idSyn,jdbcType=VARCHAR},
+      SETID = #{record.setid,jdbcType=VARCHAR},
+      PAIC_OUT_DATE = #{record.paicOutDate,jdbcType=TIMESTAMP},
+      PAIC_OUT_FLAG = #{record.paicOutFlag,jdbcType=VARCHAR},
+      DEPTID = #{record.deptid,jdbcType=VARCHAR},
+      PAIC_SETID_DESCR = #{record.paicSetidDescr,jdbcType=VARCHAR},
+      DEPTID_DESCR = #{record.deptidDescr,jdbcType=VARCHAR},
+      DEPTID_DESCR_SHORT = #{record.deptidDescrShort,jdbcType=VARCHAR},
+      PAIC_DEPTTP_NO = #{record.paicDepttpNo,jdbcType=VARCHAR},
+      PAIC_DEPTNO_DESC = #{record.paicDeptnoDesc,jdbcType=VARCHAR},
+      PAIC_DEPTLEV_NO = #{record.paicDeptlevNo,jdbcType=VARCHAR},
+      PAIC_DEPTLEV_DESC = #{record.paicDeptlevDesc,jdbcType=VARCHAR},
+      LOCATION_DESCR = #{record.locationDescr,jdbcType=VARCHAR},
+      POSTAL = #{record.postal,jdbcType=VARCHAR},
+      PAIC_DEPT_STARTDT = #{record.paicDeptStartdt,jdbcType=VARCHAR},
+      PAIC_DEPT_ENDDT = #{record.paicDeptEnddt,jdbcType=VARCHAR},
+      PAIC_ROWADD_DTTM = #{record.paicRowaddDttm,jdbcType=VARCHAR},
+      HRS_ROW_ADD_OPRID = #{record.hrsRowAddOprid,jdbcType=VARCHAR},
+      PAIC_ROWUPD_DTTM = #{record.paicRowupdDttm,jdbcType=VARCHAR},
+      HRS_ROW_UPD_OPRID = #{record.hrsRowUpdOprid,jdbcType=VARCHAR},
+      PARENT_NODE_NAME = #{record.parentNodeName,jdbcType=VARCHAR},
+      PARENT_NODE_NUM = #{record.parentNodeNum,jdbcType=INTEGER},
+      TREE_NODE_NUM = #{record.treeNodeNum,jdbcType=INTEGER},
+      TREE_NODE_NUM_END = #{record.treeNodeNumEnd,jdbcType=INTEGER},
+      TREE_LEVEL_NUM = #{record.treeLevelNum,jdbcType=INTEGER},
+      PAIC_TREEND_FLG = #{record.paicTreendFlg,jdbcType=VARCHAR},
+      PAIC_UNIQUE_DEPTID = #{record.paicUniqueDeptid,jdbcType=VARCHAR},
+      CREATED_BY = #{record.createdBy,jdbcType=VARCHAR},
+      DATE_CREATED = #{record.dateCreated,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{record.updatedBy,jdbcType=VARCHAR},
+      DATE_UPDATED = #{record.dateUpdated,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wcc.intf.pojo.Syn">
+    <!--@mbg.generated-->
+    update syn
+    <set>
+      <if test="setid != null">
+        SETID = #{setid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicOutDate != null">
+        PAIC_OUT_DATE = #{paicOutDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paicOutFlag != null">
+        PAIC_OUT_FLAG = #{paicOutFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="deptid != null">
+        DEPTID = #{deptid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicSetidDescr != null">
+        PAIC_SETID_DESCR = #{paicSetidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptidDescr != null">
+        DEPTID_DESCR = #{deptidDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="deptidDescrShort != null">
+        DEPTID_DESCR_SHORT = #{deptidDescrShort,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDepttpNo != null">
+        PAIC_DEPTTP_NO = #{paicDepttpNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptnoDesc != null">
+        PAIC_DEPTNO_DESC = #{paicDeptnoDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptlevNo != null">
+        PAIC_DEPTLEV_NO = #{paicDeptlevNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptlevDesc != null">
+        PAIC_DEPTLEV_DESC = #{paicDeptlevDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="locationDescr != null">
+        LOCATION_DESCR = #{locationDescr,jdbcType=VARCHAR},
+      </if>
+      <if test="postal != null">
+        POSTAL = #{postal,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptStartdt != null">
+        PAIC_DEPT_STARTDT = #{paicDeptStartdt,jdbcType=VARCHAR},
+      </if>
+      <if test="paicDeptEnddt != null">
+        PAIC_DEPT_ENDDT = #{paicDeptEnddt,jdbcType=VARCHAR},
+      </if>
+      <if test="paicRowaddDttm != null">
+        PAIC_ROWADD_DTTM = #{paicRowaddDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="hrsRowAddOprid != null">
+        HRS_ROW_ADD_OPRID = #{hrsRowAddOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="paicRowupdDttm != null">
+        PAIC_ROWUPD_DTTM = #{paicRowupdDttm,jdbcType=VARCHAR},
+      </if>
+      <if test="hrsRowUpdOprid != null">
+        HRS_ROW_UPD_OPRID = #{hrsRowUpdOprid,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNodeName != null">
+        PARENT_NODE_NAME = #{parentNodeName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentNodeNum != null">
+        PARENT_NODE_NUM = #{parentNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="treeNodeNum != null">
+        TREE_NODE_NUM = #{treeNodeNum,jdbcType=INTEGER},
+      </if>
+      <if test="treeNodeNumEnd != null">
+        TREE_NODE_NUM_END = #{treeNodeNumEnd,jdbcType=INTEGER},
+      </if>
+      <if test="treeLevelNum != null">
+        TREE_LEVEL_NUM = #{treeLevelNum,jdbcType=INTEGER},
+      </if>
+      <if test="paicTreendFlg != null">
+        PAIC_TREEND_FLG = #{paicTreendFlg,jdbcType=VARCHAR},
+      </if>
+      <if test="paicUniqueDeptid != null">
+        PAIC_UNIQUE_DEPTID = #{paicUniqueDeptid,jdbcType=VARCHAR},
+      </if>
+      <if test="createdBy != null">
+        CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dateCreated != null">
+        DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedBy != null">
+        UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="dateUpdated != null">
+        DATE_UPDATED = #{dateUpdated,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID_syn = #{idSyn,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wcc.intf.pojo.Syn">
+    <!--@mbg.generated-->
+    update syn
+    set SETID = #{setid,jdbcType=VARCHAR},
+      PAIC_OUT_DATE = #{paicOutDate,jdbcType=TIMESTAMP},
+      PAIC_OUT_FLAG = #{paicOutFlag,jdbcType=VARCHAR},
+      DEPTID = #{deptid,jdbcType=VARCHAR},
+      PAIC_SETID_DESCR = #{paicSetidDescr,jdbcType=VARCHAR},
+      DEPTID_DESCR = #{deptidDescr,jdbcType=VARCHAR},
+      DEPTID_DESCR_SHORT = #{deptidDescrShort,jdbcType=VARCHAR},
+      PAIC_DEPTTP_NO = #{paicDepttpNo,jdbcType=VARCHAR},
+      PAIC_DEPTNO_DESC = #{paicDeptnoDesc,jdbcType=VARCHAR},
+      PAIC_DEPTLEV_NO = #{paicDeptlevNo,jdbcType=VARCHAR},
+      PAIC_DEPTLEV_DESC = #{paicDeptlevDesc,jdbcType=VARCHAR},
+      LOCATION_DESCR = #{locationDescr,jdbcType=VARCHAR},
+      POSTAL = #{postal,jdbcType=VARCHAR},
+      PAIC_DEPT_STARTDT = #{paicDeptStartdt,jdbcType=VARCHAR},
+      PAIC_DEPT_ENDDT = #{paicDeptEnddt,jdbcType=VARCHAR},
+      PAIC_ROWADD_DTTM = #{paicRowaddDttm,jdbcType=VARCHAR},
+      HRS_ROW_ADD_OPRID = #{hrsRowAddOprid,jdbcType=VARCHAR},
+      PAIC_ROWUPD_DTTM = #{paicRowupdDttm,jdbcType=VARCHAR},
+      HRS_ROW_UPD_OPRID = #{hrsRowUpdOprid,jdbcType=VARCHAR},
+      PARENT_NODE_NAME = #{parentNodeName,jdbcType=VARCHAR},
+      PARENT_NODE_NUM = #{parentNodeNum,jdbcType=INTEGER},
+      TREE_NODE_NUM = #{treeNodeNum,jdbcType=INTEGER},
+      TREE_NODE_NUM_END = #{treeNodeNumEnd,jdbcType=INTEGER},
+      TREE_LEVEL_NUM = #{treeLevelNum,jdbcType=INTEGER},
+      PAIC_TREEND_FLG = #{paicTreendFlg,jdbcType=VARCHAR},
+      PAIC_UNIQUE_DEPTID = #{paicUniqueDeptid,jdbcType=VARCHAR},
+      CREATED_BY = #{createdBy,jdbcType=VARCHAR},
+      DATE_CREATED = #{dateCreated,jdbcType=TIMESTAMP},
+      UPDATED_BY = #{updatedBy,jdbcType=VARCHAR},
+      DATE_UPDATED = #{dateUpdated,jdbcType=TIMESTAMP}
+    where ID_syn = #{idSyn,jdbcType=VARCHAR}
+  </update>
+</mapper>
